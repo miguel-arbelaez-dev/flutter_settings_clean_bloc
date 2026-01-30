@@ -4,9 +4,7 @@ import 'package:flutter_settings_clean_bloc/feautures/settings/presentation/widg
 import 'package:flutter_settings_clean_bloc/feautures/settings/presentation/widgets/theme_tile.dart';
 
 import '../bloc/settings_bloc.dart';
-import '../bloc/settings_event.dart';
 import '../bloc/settings_state.dart';
-import '../../domain/entities/app_theme.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
