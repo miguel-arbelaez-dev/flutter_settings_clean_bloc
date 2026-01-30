@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_settings_clean_bloc/feautures/settings/presentation/widgets/settings_section.dart';
+import 'package:flutter_settings_clean_bloc/feautures/settings/presentation/widgets/theme_tile.dart';
 
 import '../bloc/settings_bloc.dart';
 import '../bloc/settings_event.dart';
@@ -19,21 +21,13 @@ class SettingsPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
 
-          return Column(
-            children: AppTheme.values.map((theme) {
-              return RadioListTile<AppTheme>(
-                title: Text(theme.name),
-                value: theme,
-                groupValue: state.theme,
-                onChanged: (value) {
-                  if (value != null) {
-                    context
-                        .read<SettingsBloc>()
-                        .add(ChangeThemeEvent(value));
-                  }
-                },
-              );
-            }).toList(),
+          return ListView(
+            children: [
+              const SizedBox(height: 16),
+              const SettingsSection(title: 'Appearance'),
+              ThemeTile(currentTheme: state.theme),
+              const Divider(height: 1),
+            ],
           );
         },
       ),
